@@ -48,13 +48,14 @@
         let that = this
         that.page = val
         let params = {
-          limit: that.limit,
-          page: val
+          current: that.limit,
+          size: val
         }
-        API.list(params).then(res => {
+        API.list(JSON.stringify(params)).then(res => {
           if (res.code === 0) {
-            that.rows = res.page.rows
-            that.total = res.page.total
+            let data = res.data
+            that.rows = data.records
+            that.total = data.total
           }
         })
 

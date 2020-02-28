@@ -17,6 +17,7 @@ axios.interceptors.request.use(
   config => {
     if (window.localStorage.getItem('access-token')) {
       config.headers.Authorization = window.localStorage.getItem('access-token');
+      console.log(config)
     }
     store.state.loading = true
     return config

@@ -207,9 +207,9 @@
         let that = this;
         this.$confirm('确认删除该记录吗?', '提示', {type: 'warning'}).then(() => {
           that.loading = true;
-          API.remove(row.id).then(function (result) {
+          API.remove(row.roleId).then(function (result) {
             that.loading = false;
-            if (result && parseInt(result.errcode) === 0) {
+            if (result && parseInt(result.code) === 0) {
               that.$message.success({showClose: true, message: '删除成功', duration: 1500});
               that.search();
             }
@@ -308,7 +308,7 @@
       },
       //批量删除
       batchDeleteBook: function () {
-        let ids = this.sels.map(item => item.id).toString();
+        let ids = this.sels.map(item => item.roleId).toString();
         let that = this;
         this.$confirm('确认删除选中记录吗？', '提示', {
           type: 'warning'

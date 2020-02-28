@@ -25,12 +25,12 @@ export default {
 
   //单个删除role
   remove: id => {
-    return API.DELETE(`/api/v1/roles/${id}`)
+    return API.DELETE(`/api-admin/role/${id}`)
   },
 
   //批量删除，传ids数组
   removeBatch: (ids) => {
-    return API.DELETE(`/api/v1/roles/batch/${ids}`)
+    return API.DELETE(`/api-admin/role/batch`,ids)
   }
 
 }
